@@ -1,0 +1,317 @@
+<!-- partials/selection.ejs -->
+
+<!-- 3 columns  -->
+<!-- 2 side columns:  auto width  -->
+<!-- 1 center column: col-x/12  -->
+<!-- row 1: twitter users  -->
+<!-- row 2: twitter dates  -->
+
+<div id="selection" class="container-fluid text-center">
+  
+  <div class="row">
+
+    <div class="col-md"></div>
+    <div class="col-md-6">
+    
+      <!-- BS Carousel to choose Twitter user and pass it on as post-->
+      <div id="userCarousel" class="carousel carousel-dark slide is-static" data-bs-interval="false">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#userCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#userCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#userCarousel" data-bs-slide-to="2"></button>
+          <button type="button" data-bs-target="#userCarousel" data-bs-slide-to="3"></button>
+          <button type="button" data-bs-target="#userCarousel" data-bs-slide-to="4"></button>
+          <button type="button" data-bs-target="#userCarousel" data-bs-slide-to="5"></button>
+          <button type="button" data-bs-target="#userCarousel" data-bs-slide-to="6"></button>
+          <button type="button" data-bs-target="#userCarousel" data-bs-slide-to="7"></button>
+        </div>
+  
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+        
+          <div class="carousel-item active">
+            <img src="/static/images/undefined-user.png" alt="Undefined User" class="d-block mx-auto" style="width:50%">
+            <div class="carousel-caption user-carousel-caption">
+              <h3>Scegli un politico</h3>
+              <p>Clicca sulle frecce per scorrere a destra o a sinistra</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/static/images/msalviniId.png" alt="Matteo Salvini" class="d-block mx-auto" style="width:50%">
+            <div class="carousel-caption user-carousel-caption">
+              <h3>Matteo Salvini</h3>
+              <p>Lega</p>
+            </div> 
+          </div>
+          <div class="carousel-item">
+            <img src="/static/images/gmeloniId.png" alt="Giorgia Meloni" class="d-block mx-auto" style="width:50%">
+            <div class="carousel-caption user-carousel-caption">
+              <h3>Giorgia Meloni</h3>
+              <p>Fratelli d'Italia</p>
+            </div> 
+          </div>
+          <div class="carousel-item">
+            <img src="/static/images/sberlusconiId.png" alt="Silvio Berlusconi" class="d-block mx-auto" style="width:50%">
+            <div class="carousel-caption user-carousel-caption">
+              <h3>Silvio Berlusconi</h3>
+              <p>Forza Italia</p>
+            </div> 
+          </div>
+          <div class="carousel-item">
+            <img src="/static/images/ccalendaId.png" alt="Carlo Calenda" class="d-block mx-auto" style="width:50%">
+            <div class="carousel-caption user-carousel-caption">
+              <h3>Giorgio Calenda</h3>
+              <p>Azione</p>
+            </div> 
+          </div>
+          <div class="carousel-item">
+            <img src="/static/images/elettaId.png" alt="Enrico Letta" class="d-block mx-auto" style="width:50%">
+            <div class="carousel-caption user-carousel-caption">
+              <h3>Enrico Letta</h3>
+              <p>Partito Democratico</p>
+            </div> 
+          </div>
+          <div class="carousel-item">
+            <img src="/static/images/mrenziId.png" alt="Matteo Renzi" class="d-block mx-auto" style="width:50%">
+            <div class="carousel-caption user-carousel-caption">
+              <h3>Matteo Renzi</h3>
+              <p>Italia Viva</p>
+            </div> 
+          </div>
+          <div class="carousel-item">
+            <img src="/static/images/mrenziId.png" alt="Giuseppe Conte" class="d-block mx-auto" style="width:50%">
+            <div class="carousel-caption user-carousel-caption">
+              <h3>Giuseppe Conte</h3>
+              <p>Movimento 5 Stelle</p>
+            </div> 
+          </div>
+      
+    
+      <!-- Left and right controls/icons -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#userCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#userCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      </button>
+    
+        <!-- close carousel-inner -->  
+        </div>
+
+      <!-- close userCarousel -->  
+      </div>
+
+    <!-- close center column -->
+    </div>
+
+
+    <!-- close side column -->
+    <div class="col-md"></div>
+  
+  <!-- close row -->
+  </div>
+
+  <div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-6">
+    
+      <!-- BS Carousel to choose Twitter dates and pass it on as post-->
+      <div id="dateCarousel" class="carousel slide carousel-dark is-static" data-bs-interval="false">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#dateCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#dateCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#dateCarousel" data-bs-slide-to="2"></button>
+          <button type="button" data-bs-target="#dateCarousel" data-bs-slide-to="3"></button>
+          <button type="button" data-bs-target="#dateCarousel" data-bs-slide-to="4"></button>
+          <button type="button" data-bs-target="#dateCarousel" data-bs-slide-to="5"></button>
+          <button type="button" data-bs-target="#dateCarousel" data-bs-slide-to="6"></button>
+        </div>
+  
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+        
+          <div class="carousel-item active">
+            <span class="big-number">?</span>
+            <div class="carousel-caption date-carousel-caption">
+              <h3>Quanti Tweet da guardare</h3>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <span class="big-number">24</span><span class="small-number">hr</span>
+            <div class="carousel-caption date-carousel-caption">
+              <h3>Nelle ultime 24 ore</h3>
+            </div> 
+          </div>
+          <div class="carousel-item">
+            <span class="big-number">3</span><span class="small-number">gg</span>
+            <div class="carousel-caption date-carousel-caption">
+              <h3>Negli ultimi 3 giorni</h3>
+            </div> 
+          </div>
+          <div class="carousel-item">
+            <span class="big-number">5</span><span class="small-number">gg</span>
+            <div class="carousel-caption date-carousel-caption">
+              <h3>Negli ultimi 5 giorni</h3>
+            </div> 
+          </div>
+          <div class="carousel-item">
+            <span class="big-number">1</span><span class="small-number">sett</span>
+            <div class="carousel-caption date-carousel-caption">
+              <h3>Nell'ultima settimana</h3>
+            </div> 
+          </div>
+          <div class="carousel-item">
+            <span class="big-number">2</span><span class="small-number">sett</span>
+            <div class="carousel-caption date-carousel-caption">
+              <h3>Nelle ultime due settimane</h3>
+            </div> 
+          </div>
+          <div class="carousel-item">
+            <span class="big-number">1</span><span class="small-number">m</span>
+            <div class="carousel-caption date-carousel-caption">
+              <h3>Nell'ultimo mese</h3>
+            </div> 
+          </div>
+              
+      <!-- Left and right controls/icons -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#dateCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#dateCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      </button>
+    
+        <!-- close carousel-inner -->  
+        </div>
+
+      <!-- close userCarousel -->  
+      </div>
+
+    <!-- close center column -->
+    </div>
+
+
+    <!-- close side column -->
+    <div class="col-md"></div>
+  
+  <!-- close row -->
+  </div>
+  
+  
+
+  
+  <div class="row">
+    <div class="col-md text-center">
+      <div class="d-inline-flex justify-content-center align-content-center align-middle"> 
+        <form method="post" action="/" id="myForm" class="d-grid">
+          <button type="submit" class="btn btn-primary btn-lg">Clicca e crea la nuvola &nbsp;
+            <i class="fa-solid fa-arrow-right fs-1 d-inline-block align-text-center align-middle">&nbsp;</i>
+          </button>
+          <input type="hidden" name="user" id="inputUser">
+          <input type="hidden" name="date" id="inputDate">
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row" id="buttonRow">
+    <div class="col-md text-center">
+      <div class="d-inline-flex justify-content-center align-content-center align-middle">
+        <h1 class="aling-middle">La tua selezione : &nbsp; </h1>
+        <button type="button" class="btn btn-primary" disabled id="screen"></button>
+        <h1 class="aling-middle"> &nbsp; &#45; &nbsp; </h1>
+        <button type="button" class="btn btn-primary" disabled id="date"></button>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+
+
+
+
+<script>
+
+document.getElementById("screen").innerHTML= "?";
+document.getElementById("date").innerHTML = "?";
+
+
+var websitename = <%- JSON.stringify(websitename) %>;
+var twitteruser = <%- JSON.stringify(twitteruser) %>;
+var date = <%- JSON.stringify(startdate) %>;
+var list = <%- JSON.stringify(outputlist) %>;
+var data = <%- JSON.stringify(data) %>;
+
+
+function findScreen(possibleUser) {
+  return possibleUser == twitteruser;
+}
+function findEasyDate(possibleDate) {
+  return possibleDate == date;
+}
+
+var screenIndex = data.possibleUsers.findIndex(findScreen);
+var dateIndex = data.possibleDates.findIndex(findEasyDate);
+
+document.getElementById("screen").innerHTML= data.possibleScreens[screenIndex];
+document.getElementById("date").innerHTML = data.possibleEasyDates[dateIndex];
+
+
+
+
+document.getElementById('inputUser').value="";
+document.getElementById('inputDate').value="";
+
+
+
+// add event listener on both carousels
+document.getElementById("userCarousel").addEventListener('slid.bs.carousel', () => {
+  myFunction('userCarousel')});
+
+document.getElementById("dateCarousel").addEventListener('slid.bs.carousel', () => {
+  myFunction('dateCarousel')});
+
+function myFunction(carousel) {
+
+  // Get the carousel container element
+  var slideContainer = document.getElementById(carousel);
+  // Get all slide with class="carousel-item" inside the container
+  var slides = slideContainer.getElementsByClassName('carousel-item');
+  
+  var current = 0;  
+  
+
+// cycle throught the slides and identify the active one
+// once identified assign the proper values to the input
+  for (var i = 0; i < slides.length; i++) {
+    slideClass = slides[i].className;
+    if ( slideClass.toString() === 'carousel-item active' ) {
+      current = i;
+      
+      if ( carousel === 'userCarousel') {
+        var output = 'inputUser';
+        var possibleinput = data.possibleUsers;
+        twitterscreen = data.possibleScreens[i];
+        document.getElementById("screen").innerHTML = twitterscreen;
+        document.getElementById(output).value = possibleinput[i];
+      } else if ( carousel === 'dateCarousel') {
+        var output = 'inputDate';
+        var possibleinput = data.possibleDates;
+        easydate = data.possibleEasyDates[i];
+        document.getElementById("date").innerHTML = easydate;
+        document.getElementById(output).value = possibleinput[i];
+      } else {
+        console.log("input error")
+        };
+           
+      
+    };
+  };  
+  
+}
+</script>

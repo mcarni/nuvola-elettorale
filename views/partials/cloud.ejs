@@ -1,0 +1,150 @@
+<!-- partials/cloud.ejs -->
+
+
+<script src="/static/javascripts/wordcloud2.js" defer></script>
+
+<!-- 3 columns  -->
+<!-- 1 left column show selection  -->
+<!-- 1 center column:   -->
+<!-- 1 go back to index   -->
+<!-- row 1: recap  -->
+<!-- row 2: canvas  -->
+
+<div id="cloud" class="container-fluid text-center">
+  
+  <div class="row">
+
+    <div class="col-md-5 text-center">
+      <div class="d-inline-flex justify-content-center align-content-center align-middle">
+        <h1 class="aling-middle">La tua selezione : &nbsp; </h1>
+        <button type="button" class="btn btn-primary" disabled id="screen"></button>
+        <h1 class="aling-middle"> &nbsp; &#45; &nbsp; </h1>
+        <button type="button" class="btn btn-primary" disabled id="date"></button>
+      </div>
+    </div>
+    <!-- close summary column -->
+
+    <div class="col-md"></div>
+    <!-- close center column -->
+    
+    
+    <div class="col-md-5">
+      <a class="btn btn-primary" href="./index#selection">Vuoi fare una nuova ricerca?</a>
+    </div>
+    <!-- close new search column -->
+    
+  <!-- close row -->
+  </div>
+
+  <div class="row">
+    <div class="col-md">
+     <canvas id="mySuperCanvas" class="canvas" width="1600" height="900"></canvas>
+    </div>
+  <!-- close row -->
+  </div>
+    
+</div>
+
+
+<script>
+
+window.onload = function() {
+
+var websitename = <%- JSON.stringify(websitename) %>;
+var twitteruser = <%- JSON.stringify(twitteruser) %>;
+var date = <%- JSON.stringify(startdate) %>;
+var list = <%- JSON.stringify(outputlist) %>;
+var data = <%- JSON.stringify(data) %>;
+
+function findScreen(possibleUser) {
+  return possibleUser == twitteruser;
+}
+function findEasyDate(possibleDate) {
+  return possibleDate == date;
+}
+
+var screenIndex = data.possibleUsers.findIndex(findScreen);
+var dateIndex = data.possibleDates.findIndex(findEasyDate);
+
+document.getElementById("screen").innerHTML= data.possibleScreens[screenIndex];
+document.getElementById("date").innerHTML = data.possibleEasyDates[dateIndex];
+
+length = list.length;
+console.log("test length: " + length);
+var prut = JSON.parse(length);
+console.log("prut + 1: " + (prut + 1));
+
+
+var options = {
+  gridSize : '16',
+  weightFactor : '16',
+  // origin : [90,90],
+  drawOutOfBound : false,
+  shrinkToFit : true,
+  // fontFamily : 'Times, serif',
+  fontWeight : 'bold',
+  color : 'random-dark',
+  backgroundColor : '#61bef4',
+  shuffle : true,
+  rotateRatio : '0',
+  shape: 'circle',
+  list : list
+};
+
+
+switch( true ) {
+  case ( JSON.parse(list.length) < 200 ):
+      options.weightFactor = 20;
+    break;
+  case ( JSON.parse(list.length) >= 200  && JSON.parse(list.length) >= 400 ):
+      options.weightFactor = 14;
+    break;
+  case ( JSON.parse(list.length) >= 400  && JSON.parse(list.length) >= 1000 ):
+      options.weightFactor = 10;
+    break;
+  case ( JSON.parse(list.length) >= 1000  && JSON.parse(list.length) >= 1500 ):
+      options.weightFactor = 8;
+    break;
+  case ( JSON.parse(list.length) >= 1500  && JSON.parse(list.length) >= 2000 ):
+      options.weightFactor = 4;
+    break;
+  case ( JSON.parse(list.length) >= 2000  && JSON.parse(list.length) >= 2500 ):
+      options.weightFactor = 2;
+    break;
+  case ( JSON.parse(list.length) >= 2500  && JSON.parse(list.length) >= 3500 ):
+      options.weightFactor = 1;
+    break;
+  default:
+      options.weightFactor = 20;
+}
+
+/*
+switch( length ) {
+  case ( "1" ):
+      options.weightFactor = 12;
+    break;
+  case ( "3" ):
+      options.weightFactor = 8;
+    break;
+  case ( "5" ):
+      options.weightFactor = 7;
+    break;
+  case ( "7" ):
+      options.weightFactor = 6;
+    break;
+  case ( "14" ):
+      options.weightFactor = 3;
+    break;
+  case ( "30" ):
+      options.weightFactor = 1;
+    break;
+  default:
+      options.weightFactor = 14;
+}
+*/
+  WordCloud(document.getElementById('mySuperCanvas'), options );
+
+}
+
+
+</script>

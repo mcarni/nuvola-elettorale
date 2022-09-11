@@ -1,0 +1,83 @@
+/*
+
+*/
+
+body {
+  background-color: #61bef4;
+}
+
+.navbar-toggler-icon, .nav-link {
+    font-size: 2rem;
+}
+
+#collapsibleNavbar {
+    background-color: grey;
+    border: 0.5rem solid black;
+    border-radius: 1.5rem;
+    padding-left: 1rem;
+}
+
+#myTitle {
+    font-size: 6rem;
+}
+    
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+.myTitleRow {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.myDivider {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    font-size: 2rem;
+    color: white;
+}
+.spaced {
+    padding-bottom: 2rem;
+}
+
+
+@media screen and (max-width: 900px) {
+#mySuperCanvas {
+    width: 700;
+    height: 400;
+  }
+.navbar-toggler-icon, .nav-link {
+    font-size: 1rem;
+  }
+#myTitle {
+    font-size: 2rem;
+  }
+}
+.big-number {
+    font-size: 10rem;
+  }
+}
+.small-number {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 690px) {
+#mySuperCanvas {
+    width: 300;
+    height: 180;
+  }
+.navbar-toggler-icon, .nav-link {
+    font-size: 0.8rem;
+  }
+#myTitle {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+
+
+
