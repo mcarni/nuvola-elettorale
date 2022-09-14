@@ -29,7 +29,7 @@
     
     
     <div class="col-md-5">
-      <a class="btn btn-primary" href="./index#selection">Vuoi fare una nuova ricerca?</a>
+      <a class="btn btn-primary" href="./index#selection" target="_blank" rel="noopener noreferrer">Vuoi fare una nuova ricerca?</a>
     </div>
     <!-- close new search column -->
     
@@ -70,7 +70,8 @@ document.getElementById("screen").innerHTML= data.possibleScreens[screenIndex];
 document.getElementById("date").innerHTML = data.possibleEasyDates[dateIndex];
 
 length = list.length;
-console.log("test length: " + length);
+console.log("test list " + list);
+console.log("test list [10]" + list[10]);
 var prut = JSON.parse(length);
 console.log("prut + 1: " + (prut + 1));
 

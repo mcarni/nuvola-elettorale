@@ -49,8 +49,8 @@ router.post('/', (req, res)=>{
       
       let list = "";
       let length = "";
-      list = await output[0];
-      length = await output[1];
+      list = await output;
+      length = await output;
 
         res.render('wordcloud.ejs', {
           websitename: websiteName,

@@ -145,8 +145,7 @@ const generateWordList = async (_userTweets) => {
         userTweetsList[i] = [Object.keys(userTweetsObj)[i],Object.values(userTweetsObj)[i]];
     });
 
-    userTweetsListLength = userTweetsList.length; 
-    return [userTweetsList , userTweetsListLength];
+    return userTweetsList;
  
 }
 
@@ -154,7 +153,6 @@ const generateWordList = async (_userTweets) => {
 module.exports = {
   generateWordList : generateWordList,
   getUserTweets : getUserTweets,
-  userTweetsList: userTweetsList,
-  userTweetsListLength: userTweetsListLength
+  userTweetsList: userTweetsList
 };
 
