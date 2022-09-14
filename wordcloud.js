@@ -108,7 +108,7 @@ const generateWordList = async (_userTweets) => {
     // remove urls
     userTweetsText = userTweetsText.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
     // remove ,.;:!?
-    userTweetsText = userTweetsText.replace(/[,.;:!?\s]/g, ' ');
+    userTweetsText = userTweetsText.replace(/[,.;:!?()'"\s]/g, ' ');
     // remove RT
     //userTweetsText = userTweetsText.replace(/\s[RT]\s/g, '');
     // all lower case
@@ -116,11 +116,11 @@ const generateWordList = async (_userTweets) => {
     // remove italian prepositions and others plus additional spaces
     let uselessWords = ["di", "a", "da", "in", "con", "su", "per", "tra", "fa",
                         "del", "dello", "dell'", "della", "dei", "degli", "delle",
-                        "al", "allo", "all'", "alla", "ai", "agli", "alle",
+                        "al", "allo", "all'", "alla", "ai", "agli", "alle","ad",
                         "dal", "dallo", "dall'", "dalla", "dai", "dagli", "dalle",
                         "nel", "nello", "nell'", "nella", "nei", "negli", "nelle", 
                         "sul", "sullo", "sull'", "sulla", "sui", "sugli", "sulle",
-                        "e", "o", "or", "é", "è", "che",
+                        "e", "o", "od", "or", "che",
                         "ci", "vi", "ne", "si",
                         "il", "lo", "la", "le", "i", "gli", "l'", "un", "una", "un'", "uno",
                         "(1/1)", "(1/2)", "(1/3)", "(1/4)", "(1/5)",
@@ -129,12 +129,18 @@ const generateWordList = async (_userTweets) => {
     let expStr = uselessWords.join("|");
     userTweetsText = userTweetsText.replace(new RegExp('\\b(' + expStr + ')\\b', 'gi'), ' ')
                     .replace(/\s{2,}/g, ' ');
+    //userTweetsText = userTweetsText.replace(/\s[(]\s/g, ' ');
+    // remove unicode for ( ) é è
+    userTweetsText = userTweetsText.replace(/\s\u00E8\s/g, ' ');
+    userTweetsText = userTweetsText.replace(/\s\u00E9\s/g, ' ');
+    //userTweetsText = userTweetsText.replace(/\u0029/g, ' ');
+    //userTweetsText = userTweetsText.replace(/\u00E8/g, ' ');
+    //userTweetsText = userTweetsText.replace(/\u00E9/g, ' ');
     //userTweetsText = userTweetsText.replace(/\s[di]\s/g, '');
     // remove additional spaces
     //userTweetsText = userTweetsText.replace(/\s+/g, ' ')
     let words = [];
     words = userTweetsText.split(' ');
-    //words = ["pupi","popa","pier","pier","popa","popa","pupi","pupi","pupi","pier","pier"];
     let userTweetsObj = {};
     //let userTweetsList = [[]];
     words.forEach(function(el, i, arr) {
@@ -145,6 +151,24 @@ const generateWordList = async (_userTweets) => {
         userTweetsList[i] = [Object.keys(userTweetsObj)[i],Object.values(userTweetsObj)[i]];
     });
 
+    // sort userTweetsList array by value [[word,value]]
+    userTweetsList = userTweetsList.sort(function(a, b) {
+      return b[1] - a[1];
+    });
+    // shorten the userTweetsList array
+    let maximumLength = 300;
+    userTweetsList = userTweetsList.slice(0, maximumLength);
+    // "normalise" the userTweetsList array so that the maximum value is always at 100
+    let maxWordValueCouple = userTweetsList[0];
+    //let minWordValueCouple = userTweetsList[userTweetsList.length-1];
+    let maxValue = maxWordValueCouple[1];
+    //let minValue = minWordValueCouple[1];
+    function myFancyNormalisingFunction(item, index, arr) {
+      item[1] = item[1] / maxValue * 100;
+    };
+    
+    userTweetsList.forEach(myFancyNormalisingFunction);
+    
     return userTweetsList;
  
 }

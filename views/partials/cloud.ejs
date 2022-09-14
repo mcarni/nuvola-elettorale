@@ -38,7 +38,7 @@
 
   <div class="row">
     <div class="col-md">
-     <canvas id="mySuperCanvas" class="canvas" width="1600" height="900"></canvas>
+     <canvas id="mySuperCanvas" class="canvas"></canvas>
     </div>
   <!-- close row -->
   </div>
@@ -49,6 +49,23 @@
 <script>
 
 window.onload = function() {
+
+const canvas = document.getElementById('mySuperCanvas');
+const context = canvas.getContext('2d');
+const layoutViewport = document.getElementById('cloud');
+const vViewport = window.visualViewport;
+
+//canvas.width = 0.9 * window.outerWidth;
+//canvas.height = 0.4 * window.outerWidth;
+//canvas.width = 0.9 * layoutViewport.width;
+//canvas.height = 0.4 * layoutViewport.width;
+if (vViewport.width > vViewport.height) {
+  canvas.width = 0.9 * vViewport.width;
+  canvas.height = 0.4 * vViewport.width;
+} else if (vViewport.width < vViewport.height) {
+  canvas.width = 0.9 * vViewport.width;
+  canvas.height = 1.5 * vViewport.width;
+}
 
 var websitename = <%- JSON.stringify(websitename) %>;
 var twitteruser = <%- JSON.stringify(twitteruser) %>;
@@ -69,16 +86,10 @@ var dateIndex = data.possibleDates.findIndex(findEasyDate);
 document.getElementById("screen").innerHTML= data.possibleScreens[screenIndex];
 document.getElementById("date").innerHTML = data.possibleEasyDates[dateIndex];
 
-length = list.length;
-console.log("test list " + list);
-console.log("test list [10]" + list[10]);
-var prut = JSON.parse(length);
-console.log("prut + 1: " + (prut + 1));
-
 
 var options = {
+  //minSize : '12',
   gridSize : '16',
-  weightFactor : '16',
   // origin : [90,90],
   drawOutOfBound : false,
   shrinkToFit : true,
@@ -89,61 +100,11 @@ var options = {
   shuffle : true,
   rotateRatio : '0',
   shape: 'circle',
+  weightFactor: '1',
   list : list
 };
 
-
-switch( true ) {
-  case ( JSON.parse(list.length) < 200 ):
-      options.weightFactor = 20;
-    break;
-  case ( JSON.parse(list.length) >= 200  && JSON.parse(list.length) >= 400 ):
-      options.weightFactor = 14;
-    break;
-  case ( JSON.parse(list.length) >= 400  && JSON.parse(list.length) >= 1000 ):
-      options.weightFactor = 10;
-    break;
-  case ( JSON.parse(list.length) >= 1000  && JSON.parse(list.length) >= 1500 ):
-      options.weightFactor = 8;
-    break;
-  case ( JSON.parse(list.length) >= 1500  && JSON.parse(list.length) >= 2000 ):
-      options.weightFactor = 4;
-    break;
-  case ( JSON.parse(list.length) >= 2000  && JSON.parse(list.length) >= 2500 ):
-      options.weightFactor = 2;
-    break;
-  case ( JSON.parse(list.length) >= 2500  && JSON.parse(list.length) >= 3500 ):
-      options.weightFactor = 1;
-    break;
-  default:
-      options.weightFactor = 20;
-}
-
-/*
-switch( length ) {
-  case ( "1" ):
-      options.weightFactor = 12;
-    break;
-  case ( "3" ):
-      options.weightFactor = 8;
-    break;
-  case ( "5" ):
-      options.weightFactor = 7;
-    break;
-  case ( "7" ):
-      options.weightFactor = 6;
-    break;
-  case ( "14" ):
-      options.weightFactor = 3;
-    break;
-  case ( "30" ):
-      options.weightFactor = 1;
-    break;
-  default:
-      options.weightFactor = 14;
-}
-*/
-  WordCloud(document.getElementById('mySuperCanvas'), options );
+WordCloud(document.getElementById('mySuperCanvas'), options );
 
 }
 

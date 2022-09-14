@@ -43,10 +43,12 @@ body {
 
 
 @media screen and (max-width: 900px) {
+/*
 #mySuperCanvas {
     width: 700;
     height: 400;
   }
+*/
 .navbar-toggler-icon, .nav-link {
     font-size: 1rem;
   }
@@ -64,10 +66,12 @@ body {
 }
 
 @media screen and (max-width: 690px) {
+/*
 #mySuperCanvas {
     width: 300;
     height: 180;
   }
+*/
 .navbar-toggler-icon, .nav-link {
     font-size: 0.8rem;
   }
